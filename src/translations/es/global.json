@@ -1,0 +1,50 @@
+{
+  "header": {
+    "title": "Hola, Soy Maria Del Mar Artunduaga",
+    "description": "Desarrollador Web",
+    "contactme":"Contáctame"
+  },
+
+  "sobremi": {
+    "title": "Sobre mi",
+    "description": "Soy Desarrolladora de Software, con una profunda pasión por la tecnología y el desarrollo de software. Mis habilidades abarcan tanto el liderazgo como el trabajo en equipo. Tengo experiencia en el consumo de APIs utilizando Django Rest Framework y en el uso de diversas tecnologías y lenguajes de programación, incluyendo JavaScript, MySQL, HTML, CSS, Bootstrap, Java, Python, Git, IA, Linux y GitHub. Estoy comprometida con el crecimiento constante y la aplicación de soluciones innovadoras en el ámbito del desarrollo de software."
+  },
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mi",
+    "projects": "Proyectos",
+    "education":"Educación",
+    "contact": "Contacto"
+  },
+ 
+  "titles": {
+    "services": "Inicio",
+    "projects": "Sobre mi",
+    "contact": "Contacto"
+  },
+  "texts":{
+    "hello":"¡Hola a todos!",
+    "im":"Soy Maria del Mar Artunduaga",
+    "do":"Desarrolladora de Software FullStack",
+    "creating": "Creando soluciones innovadoras con codigo",
+    "downloadCV": "Descargar CV"
+  },
+  "contact":{
+    "paragrah":"Estos son los medios por el cual puedes contactarme, es un placer atenderte para trabajar juntos"
+  },
+  "education":{
+    "firstTitle": "Tecnólogo en Análisis y Desarrollo de software",
+    "latest": "Ultimo",
+    "firstTime":"Enero 2023 - Abril 2025",
+    "firstDescription":"· Proyectos: Plataforma para personas con limitantes del habla (Texto a voz)",
+    "secondDescription": "· Tecnologías: Python, Django, Postman, Javascript, HTML,GitHub, Git, IA.",
+    "secondTitle": "BOOTCAMP Mujeres Digitales",
+    "secondTime":"Septiembre 2024 - Noviembre 2024",
+    "thirdDescription":"· Proyectos: Portafolio",
+    "fourthDescription":"· Tecnologías: React, Redux, Tailwind.",
+    "thirdTitle":"Técnico en programación de Software",
+    "thirdTime":"Enero 2020 - Noviembre del 2022",
+    "fifthDescription":"· Proyectos: Sistema de inventario para una empresa",
+    "sixthDescription":"· Tecnologías: PHP, Mysql, HTML, CSS."
+  }
+}

@@ -1,0 +1,54 @@
+{
+    "header": {
+        "title": "Hi, I'm  Maria Del Mar Artunduaga",
+        "description": "Web Developer",
+        "contactme":"Contact me"
+    },
+    "sobremi": {
+        "title": "About me",
+        "description": "I am a Full Stack Web Developer with knowledge in OOP, Databases, TypeScript, TailwindCSS, NextJs and ReactJs, in addition to other technologies, to always stay at the forefront with the most in-demand languages. I am responsible, autonomous, self-taught and a leader, which allows me to seek the best solutions to any problem. I love learning from different areas and I am sure I can contribute to the success of your company. Let's work together to make our dreams come true!"
+    },
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact",
+        "education":"Education"
+    },
+   
+    "titles": {
+        "services": "SERVICES",
+        "projects": "PROJECTS",
+        "testimonials": "TESTIMONIALS",
+        "contact": "CONTACT",
+        "typeprojects": "Project Type",
+        "typetech": "Technology Type"
+    },
+   "texts": {
+    "hello": "Hi everybody!",
+    "im": "I'm Maria del Mar Artunduaga",
+    "do": "FULL-STACK DEVELOPER",
+    "creating": "Creating innovative solutions with code",
+    "downloadCV": "Download CV"
+  },
+  "contact":{
+    "paragrah":"These are the means by which you can contact me, it is a pleasure to work together with you."
+  },
+   
+ "education":{
+    "firstTitle": "Software Analysis and Development Technologist",
+    "latest": "Latest",
+    "firstTime": "January 2023 - April 2025",
+    "firstDescription":"· Projects: Platform for people with speech limitations (Text to Speech)",
+    "secondDescription":"· Technologies: Python, Django, Postman, Javascript, HTML,GitHub, Git, AI.",
+    "secondTitle": "BOOTCAMP Digital Women",
+    "secondTime": "September 2024 - November 2024",
+    "thirdDescription":"· Projects: Portfolio",
+    "fourthDescription":"· Technologies: React, Redux, Tailwind.",
+    "thirdTitle": "Software Programming Technician",
+    "thirdTime": "January 2020 - November 2022",
+    "fifthDescription":"· Projects: Inventory system for a company",
+    "sixthDescription":"· Technologies: PHP, Mysql, HTML, CSS."
+  }
+
+}
