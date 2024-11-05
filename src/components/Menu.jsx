@@ -15,6 +15,15 @@ const Menu = () => {
         {t('navbar.home')}
       </NavLink>
      
+      <NavLink
+        className={({ isActive }) => 
+          `menu-link ${isActive ? "active-link" : ""}`
+        }
+        to={"/products"}
+      >
+        {t('navbar.products')}
+      </NavLink>
+     
     </nav>
   );
 };

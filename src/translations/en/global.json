@@ -10,7 +10,7 @@
     },
     "navbar": {
         "home": "Home",
-        "about": "About",
+        "products": "products",
         "projects": "Projects",
         "contact": "Contact",
         "education":"Education"

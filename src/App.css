@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-.menu-nav {
-  @apply flex flex-wrap justify-center md:justify-around mt-2 mx-2 md:mx-4 col-span-1 md:col-span-2 md:col-start-2 text-white rounded-lg p-2;
-}
-
-.menu-link {
-  @apply px-2 py-1 md:px-4 md:py-2 relative;
-}
-
-.menu-link::before {
-  content: "";
-  @apply absolute bottom-0 left-0 w-0 h-[2px] bg-white z-10 transition-all duration-300 ease-in-out;
-}
-
-/* Estado de hover: anima la línea */
-.menu-link:hover::before {
-  @apply w-full;
-}
-
-/* Estado activo: línea completamente visible */
-.active-link::before {
-  @apply w-full;
+@layer components {
+  #root{
+    background: linear-gradient(to right, #556f92 0%, #8799b2 40%, #b2bbc4 100%);
+    @apply w-full
+  }
+  .menu-nav {
+    @apply flex flex-wrap justify-start text-white rounded-lg p-2 m-12;
+  }
+  .menu-link {
+    @apply px-2 py-1 md:px-4 md:py-2 relative;
+  }
+  .menu-link::before {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-white z-10 transition-all duration-300 ease-in-out;
+  }
+  /* Estado de hover: anima la línea */
+  .menu-link:hover::before {
+    @apply w-full;
+  }
+  /* Estado activo: línea completamente visible */
+  .active-link::before {
+    @apply w-full;
+  }
 }
