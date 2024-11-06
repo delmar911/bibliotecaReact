@@ -11,7 +11,7 @@
     "navbar": {
         "home": "Home",
         "products": "products",
-        "projects": "Projects",
+        "sobrenosotros": "About Us",
         "contact": "Contact",
         "education":"Education"
     },

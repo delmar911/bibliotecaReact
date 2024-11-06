@@ -6,24 +6,7 @@ const Menu = () => {
 
   return (
     <nav className="menu-nav">
-      <NavLink
-        className={({ isActive }) => 
-          `menu-link ${isActive ? "active-link" : ""}`
-        }
-        to={"/"}
-      >
-        {t('navbar.home')}
-      </NavLink>
-     
-      <NavLink
-        className={({ isActive }) => 
-          `menu-link ${isActive ? "active-link" : ""}`
-        }
-        to={"/products"}
-      >
-        {t('navbar.products')}
-      </NavLink>
-     
+    
     </nav>
   );
 };

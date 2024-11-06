@@ -8,7 +8,7 @@
     @apply w-full
   }
   .menu-nav {
-    @apply flex flex-wrap justify-start text-white rounded-lg p-2 m-8;
+    @apply flex flex-col md:flex-row md:space-x-4 text-white rounded-lg p-2;
   }
   .menu-link {
     @apply px-2 py-1 md:px-4 md:py-2 relative;

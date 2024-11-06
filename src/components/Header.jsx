@@ -1,78 +1,153 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import logoBlack from "../assets/img/logoOscuro.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSearch } from "../context/SearchContext";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import logoBlanco from "../assets/img/logoBlanco.png";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-export const Header = () => {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+const Header = () => {
+  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm, handleSearch } = useSearch();
+  const { getCartItemsCount } = useCart();
+  const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      if (query) {
-        try {
-          const response = await axios.get(`https://api.escuelajs.co/api/v1/products?title=${query}`);
-          setResults(response.data);
-        } catch (error) {
-          console.error('Error al obtener los datos:', error);
-        }
-      } else {
-        setResults([]);
-      }
-    };
-    fetchProducts();
-  }, [query]);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSearch();
+    navigate("/productos");
+  };
 
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
+  const handleCartClick = () => {
+    navigate("/carrito");
   };
 
   return (
-    <div className="w-full p-4 flex flex-col items-center">
-      <form className="relative w-full max-w-md mb-4">
-        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-gray-500 dark:text-gray-400 w-4 h-4" />
-        </div>
-        <input
-          type="text"
-          placeholder="Buscar productos..."
-          value={query}
-          onChange={handleInputChange}
-          className="w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        />
-        <button
-          type="submit"
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Buscar
-        </button>
-      </form>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 w-full">
-        {results.map(product => (
-          <div
-            key={product.id}
-            className="p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800 dark:border-gray-700"
-            style={{ maxHeight: '400px', overflowY: 'auto' }}
-          >
+    <header className="bg-gray-900 shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-24">
+          {/* Logo */}
+          <div className="flex-shrink-0">
             <img
-              src={product.images[0]}
-              alt={product.title}
-              className="w-full h-32 object-cover mb-2 rounded"
+              src={logoBlanco}
+              alt="Logo"
+              className="h-24 w-auto cursor-pointer"
+              onClick={() => navigate("/")}
             />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              {product.title}
-            </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-400 line-clamp-3">
-              {product.description}
-            </p>
           </div>
-        ))}
+
+          {/* Botón de menú hamburguesa */}
+          <button
+            className="text-white md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          {/* Menú de navegación */}
+          <nav
+            className={`menu-nav md:flex md:flex-row md:space-x-4 text-white p-2 absolute top-full left-0 right-0 bg-gray-900 md:static md:bg-transparent transition-transform duration-300 ease-in-out ${
+              menuOpen ? "block" : "hidden"
+            }`}
+          >
+            <NavLink
+              className={({ isActive }) =>
+                `menu-link block md:inline-block ${
+                  isActive ? "active-link" : ""
+                }`
+              }
+              to={"/"}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t("navbar.home")}
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `menu-link block md:inline-block ${
+                  isActive ? "active-link" : ""
+                }`
+              }
+              to={"/productos"}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t("navbar.products")}
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `menu-link block md:inline-block ${
+                  isActive ? "active-link" : ""
+                }`
+              }
+              to={"/SobreNosotros"}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t("navbar.sobrenosotros")}
+            </NavLink>
+          </nav>
+
+          {/* Buscador y carrito */}
+          <div className="flex-1 max-w-2xl mx-8">
+            <form onSubmit={onSubmit} className="relative">
+              <input
+                type="text"
+                placeholder="Buscar productos..."
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          {/* Carrito */}
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={handleCartClick}
+              className="relative p-2 text-white hover:text-gray-200 transition-colors"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {getCartItemsCount() > 0 && (
+                <div className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getCartItemsCount()}
+                </div>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="w-60 mt-4">
-        <img src={logoBlack} alt="logo" />
-      </div>
-    </div>
+    </header>
   );
 };
 
