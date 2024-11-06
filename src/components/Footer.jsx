@@ -1,5 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,10 +14,26 @@ const Footer = () => {
         <div className="mb-4 md:mb-0">
           <h4 className="text-lg font-semibold mb-2">Enlaces rápidos</h4>
           <ul className="space-y-1">
-            <li><a href="#" className="hover:underline">Inicio</a></li>
-            <li><a href="#" className="hover:underline">Servicios</a></li>
-            <li><a href="#" className="hover:underline">Sobre nosotros</a></li>
-            <li><a href="#" className="hover:underline">Contacto</a></li>
+            <li>
+              <NavLink className="" to={"/"}>
+                Inicio
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="" to={"/productos"}>
+                Productos
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="" to={"/SobreNosotros"}>
+                Sobre Nosotros
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="" to={"/carrito"}>
+                Carrito
+              </NavLink>
+            </li>
           </ul>
         </div>
 
@@ -31,7 +52,10 @@ const Footer = () => {
 
         {/* Derechos de autor */}
         <div className="text-center md:text-right">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Mi Empresa. Todos los derechos reservados.</p>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Online Shop MAC. Todos los derechos
+            reservados.
+          </p>
         </div>
       </div>
     </footer>
