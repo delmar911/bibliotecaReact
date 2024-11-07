@@ -1,10 +1,10 @@
 
-![Logo](https://i.postimg.cc/wv6Xy2qx/logoblanco.png)
+![Logo](https://i.postimg.cc/Df9kXxq1/logo-Blanco.png)
 
 
-# Biblioteca MAC
+# Online Shop MAC
 
-Biblioteca MAC es un sitio web donde se consume la api de https://vasga-floze.github.io/docs-api-book/index.html se puede obtener, obtener por id, modificar y registrar libros con una interfaz muy intuitiva
+Tienda Online MAC es un sitio web donde se consume la api de  Platzi Fake Store API https://fakeapi.platzi.com/ se puede obtener, obtener por id, ver los detalles y un carrito de compras con una interfaz muy intuitiva
 
 
 ## Autor
@@ -22,11 +22,6 @@ Clonar el proyecto
   git clone https://github.com/delmar911/bibliotecaReact.git
 ```
 
-Vaya al directorio del proyecto
-
-```bash
-  cd BibliotecaMAC
-```
 Instalar dependencias
 
 ```bash
@@ -42,44 +37,45 @@ Iniciar el servidor
 
 ## Tegnologias usadas
 
- React, Redux, TailwindCSS, Axios
+ React, TailwindCSS, Axios
 
 
-
-
-## API Reference https://vasga-floze.github.io/docs-api-book/index.html
+## API Reference https://fakeapi.platzi.com/en/about/introduction/
 
 #### Obtener todos los items
 
 ```http
-  GET /api/books
+  [GET] https://api.escuelajs.co/api/v1/products
 ```
 
 
 #### Obtener item por id
 
 ```http
-  GET /api/book/${id}
+  [GET] https://api.escuelajs.co/api/v1/products/${id}
 ```
 
 | Parametro | tipo     | Descripción                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Requerido**. Id del elemento a obtener|
 
-#### Post item
-
+#### Filtrar por titulo
 ```http
-  POST /api/book
+[GET] https://api.escuelajs.co/api/v1/products/?title=Generic
 ```
-#### Modificar por id
-
+#### Filtrar por precio
 ```http
-  PUT /api/book/${id}
+[GET] https://api.escuelajs.co/api/v1/products/price=100
 ```
-
-| Parametro | tipo     | Descripción                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Requerido**. Id del elemento a modificar|
-
-
-
+#### Filtrar por rango de precio
+```http
+[GET] https://api.escuelajs.co/api/v1/products/?price_min=900&price_max=1000
+```
+#### Filtrar por categoria
+```http
+[GET] https://api.escuelajs.co/api/v1/products/?categoryId=1
+```
+#### Categorias
+```http
+[GET] https://api.escuelajs.co/api/v1/categories
+```
