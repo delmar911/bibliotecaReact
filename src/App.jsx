@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { SearchProvider } from './context/SearchContext';
 import {CartProvider} from './context/CartContext';
 import { Toaster } from 'react-hot-toast';
+import Testimonial from "./components/Testimonial/Testimonial";
 
 function App() {
   return (
@@ -24,10 +25,12 @@ function App() {
               <Route path="/SobreNosotros" element={<SobreNosotros />} />
               <Route path="/carrito" element={<Cart />} /> {/* Nueva ruta para el carrito */}
             </Routes>
+            <Testimonial/>
             <Footer />
           </BrowserRouter>
         </SearchProvider>
       </CartProvider>
+      
     </>
   );
 }

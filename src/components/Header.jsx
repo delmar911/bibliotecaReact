@@ -25,15 +25,15 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4">
+    <header className="sticky top-0 z-50 bg-gray-900 shadow-md">
+      <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
               src={logoBlanco}
               alt="Logo"
-              className="h-24 w-auto cursor-pointer"
+              className="w-auto h-24 cursor-pointer"
               onClick={() => navigate("/")}
             />
           </div>
@@ -106,13 +106,13 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Buscar productos..."
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button
                 type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute text-gray-400 transform -translate-y-1/2 right-2 top-1/2 hover:text-gray-600"
               >
                 <svg
                   className="w-5 h-5"
@@ -135,11 +135,11 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={handleCartClick}
-              className="relative p-2 text-white hover:text-gray-200 transition-colors"
+              className="relative p-2 text-white transition-colors hover:text-gray-200"
             >
               <ShoppingCart className="w-6 h-6" />
               {getCartItemsCount() > 0 && (
-                <div className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <div className="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-blue-500 rounded-full -top-1 -right-1">
                   {getCartItemsCount()}
                 </div>
               )}
