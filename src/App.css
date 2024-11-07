@@ -5,7 +5,12 @@
 @layer components {
   #root{
     background: linear-gradient(to right, #556f92 0%, #8799b2 40%, #b2bbc4 100%);
-    @apply w-full
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  } 
+  .main-content {
+    flex: 1;
   }
   .menu-nav {
     @apply flex flex-col md:flex-row md:space-x-4 text-white rounded-lg p-2;

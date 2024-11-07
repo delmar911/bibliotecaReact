@@ -16,6 +16,7 @@ function App() {
         <SearchProvider>
           <BrowserRouter>
           <Toaster />
+          <main className="main-content">
             <Header />
             <Menu />
             <Routes>
@@ -25,7 +26,7 @@ function App() {
               <Route path="/SobreNosotros" element={<SobreNosotros />} />
               <Route path="/carrito" element={<Cart />} /> {/* Nueva ruta para el carrito */}
             </Routes>
-            
+            </main>
             <Footer />
           </BrowserRouter>
         </SearchProvider>
