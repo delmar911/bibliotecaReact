@@ -65,7 +65,7 @@ const Testimonial = () => {
     };
 
     return (
-        <div className="py-40 mb-10">
+        <div className="py-12 mb-10">
             <div className="container">
                 <div className="p-6 space-y-4 text-center max-w-[600px] mx-auto mb-6">
                     <h1 className="text-4xl font-semibold text-blue-800 uppercase">Nuestros Testimonios</h1>

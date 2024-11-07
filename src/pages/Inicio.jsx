@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import hombre from "../assets/img/hombre.jpg";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 export const Inicio = () => {
   useEffect(() => {
@@ -36,6 +37,7 @@ export const Inicio = () => {
           </p>
         </div>
       </div>
+    <Testimonial/>
     </main>
   );
 };

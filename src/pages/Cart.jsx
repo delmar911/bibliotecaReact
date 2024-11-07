@@ -31,19 +31,22 @@ export const Cart = () => {
       
       <div className="bg-slate-200 rounded-lg shadow-md p-6">
         {cartItems.map((item) => (
-          <div key={item.id} className="flex items-center border-b py-4">
+          <div
+            key={item.id}
+            className="flex flex-col md:flex-row items-center border-b py-4 space-y-4 md:space-y-0 md:space-x-4"
+          >
             <img
               src={item.image}
               alt={item.title}
               className="w-24 h-24 object-cover rounded"
             />
             
-            <div className="flex-1 ml-4">
+            <div className="flex-1 text-center md:text-left">
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-gray-600">${item.price}</p>
             </div>
             
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-center md:justify-start space-x-2">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
                 className="p-1 hover:bg-gray-100 rounded"
@@ -61,13 +64,13 @@ export const Cart = () => {
               </button>
             </div>
             
-            <div className="ml-8 text-lg font-semibold">
+            <div className="text-lg font-semibold mt-2 md:mt-0">
               ${(item.price * item.quantity).toFixed(2)}
             </div>
             
             <button
               onClick={() => removeFromCart(item.id)}
-              className="ml-4 p-2 text-red-500 hover:text-red-700"
+              className="p-2 text-red-500 hover:text-red-700"
             >
               <Trash2 className="w-5 h-5" />
             </button>
@@ -84,7 +87,7 @@ export const Cart = () => {
             onClick={() => {
                 toast.success('¡Gracias por tu compra!', {
                     duration: 4000, // Duración en milisegundos
-                    position: 'top-right' // Posición del toast
+                    position: 'top-center' // Posición del toast
                   });
             }}
           >

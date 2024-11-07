@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import aboutUs from "../assets/img/aboutus.jpg"
 
 import imgReplace from "../assets/img/Image-folder.jpg";
 
@@ -34,7 +35,7 @@ export const SobreNosotros = () => {
         <div className="flex items-center justify-center">
           <img
             data-aos="zoom-in" // Animación de zoom
-            src={imgReplace}
+            src={aboutUs}
             alt="Tienda"
             className="rounded-lg shadow-lg w-96 h-auto"
           />

@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useCart } from '../context/CartContext';
-import { ShoppingCart } from 'lucide-react';
-import toast from 'react-hot-toast';
+import { useCart } from "../context/CartContext";
+import { ShoppingCart } from "lucide-react";
+import toast from "react-hot-toast";
+import imgReplace from "../assets/img/Image-folder.jpg";
 
 export const ProductosDetalle = () => {
   const navigate = useNavigate();
@@ -15,9 +16,11 @@ export const ProductosDetalle = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
+        const response = await fetch(
+          `https://api.escuelajs.co/api/v1/products/${id}`
+        );
         if (!response.ok) {
-          throw new Error('Producto no encontrado');
+          throw new Error("Producto no encontrado");
         }
         const data = await response.json();
         setProduct(data);
@@ -38,10 +41,10 @@ export const ProductosDetalle = () => {
   const handleAddToCart = () => {
     addToCart(product);
     // Opcional: Muestra una notificación de éxito
-    toast.success('Producto agregado al carrito de compras', {
-        duration: 4000, // Duración en milisegundos
-        position: 'top-right' // Posición del toast
-      });
+    toast.success("Producto agregado al carrito de compras", {
+      duration: 4000, // Duración en milisegundos
+      position: "top-center", // Posición del toast
+    });
   };
 
   if (loading) {
@@ -68,15 +71,20 @@ export const ProductosDetalle = () => {
 
   return (
     <section className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4 text-slate-100">Detalle del producto:</h1>
+      <h1 className="text-2xl font-bold mb-4 text-slate-100">
+        Detalle del producto:
+      </h1>
       <div className="bg-slate-200 rounded-lg shadow-md p-6">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Columna de la imagen */}
           <div className="md:w-1/2">
             <img
-              src={product.images[0]}
-              alt={product.title}
               className="w-full h-[500px] object-cover rounded-lg"
+              src={product.images[0] || imgReplace}
+                alt={product.title}
+                onError={(e) => {
+                  e.target.src = imgReplace;
+                }}
             />
           </div>
 
@@ -95,7 +103,7 @@ export const ProductosDetalle = () => {
               <h4 className="text-lg font-semibold mb-2">Descripción:</h4>
               <p className="text-gray-600">{product.description}</p>
             </div>
-            
+
             <div className="flex gap-4 mt-auto">
               <button
                 onClick={handleNavigateBack}
@@ -103,7 +111,7 @@ export const ProductosDetalle = () => {
               >
                 Regresar
               </button>
-              
+
               <button
                 onClick={handleAddToCart}
                 className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex-1 flex items-center justify-center gap-2"
